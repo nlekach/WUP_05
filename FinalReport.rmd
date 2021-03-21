@@ -19,7 +19,7 @@ A new  preventative aides drug (triUmpsal) is under test in clinical trials. Con
 
 The null hypothesis is that there is no difference in infection rate among females who received the treatment and females who received no treatment.  
   
-The alternative hypothesis is that there is a different in infection rate among females who received the treatment and females who received no treatment.  
+The alternative hypothesis is that there is a difference in infection rate among females who received the treatment and females who received no treatment.  
 
 # Methods
 
@@ -56,12 +56,24 @@ table1 <- xtabs(~infected + treatment, data = FemaleTriUmp)
 rowPerc(table1)
 colPerc(table1)
 ```
-
+  
+Of the female patients diagnosed with AIDS, more of them received the drugs than received the placebo. Of the female patients who were not diagnosed with AIDS, ~2% more of them received the placebo. It seems that the drug was not effective in preventing AIDS. The inferential test will help determine if there is a statistical difference.  
+  
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
-
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+  
+Due to the small amount of participants who were diagnosed with AIDS, the Fisher Exact Test is a better statistical test to interpret for this study. With a small p-value of 0.00006596, we can reject the null hypothesis. This indicates that there is a significant difference in AIDS infection rate between those those who receive the treatment and those that receive the placebo. 
+The odds ratio tells us that those who received the treatment are 1.544 times more likely to get AIDS than those that received the placebo.   
+  
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+
