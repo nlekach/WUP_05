@@ -75,5 +75,5 @@ The odds ratio tells us that those who received the treatment are 1.544 times mo
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
-
-
+  
+By rejecting the null hypothesis, we accept that there is a significant difference between receiving the treatment and not receiving the treatment. However, the odds ratio and the numerical results indicate that those who receive the treatment are more likely to get AIDS than those that don't receive the treatment. This indicates that the treatment did not work in preventing AIDS in the female test subjects.   
