@@ -17,10 +17,19 @@ triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the females, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
+The null hypothesis is that there is no difference in infection rate among females who received the treatment and females who received no treatment.  
+  
+The alternative hypothesis is that there is a different in infection rate among females who received the treatment and females who received no treatment.  
+
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
+  
+To determine the effectiveness of this preventative AIDs drug on females, we will compare the infection rate among study participants who either received the drug treatment or did not. The female study participants were filtered out to properly respond to our question.    
 
+```{r}
+FemaleTriUmp<-filter(triUmp,gender=="F")
+```
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
@@ -31,9 +40,22 @@ A new  preventative aides drug (triUmpsal) is under test in clinical trials. Con
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+barchartGC(~infected + treatment,data=FemaleTriUmp)
+barchartGC(~infected + treatment,data=FemaleTriUmp, type="percent")
+```
+  
+Of the female patients diagnosed with AIDS, about 60% of them received the drug treatment and about 40% of them received no treatment. Of the patients that were not diagnosed with AIDS, a little less than half of them received the drug and a little more than half did not receive the drug.    
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+table1 <- xtabs(~infected + treatment, data = FemaleTriUmp)
+rowPerc(table1)
+colPerc(table1)
+```
 
 ## Inferential Results
 
